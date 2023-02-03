@@ -1,9 +1,9 @@
 # cuda codes.
 ## Cuda parallel model
 ![image](https://github.com/compilereg/parallel-codes/blob/main/cuda/cuda-parallel.png)  
-* Number of blocks called _Grid dimensions_ (field maxGridSize in property struct or blockDim.x in the kernel)
-* Number of threads in the block called _Thread dimension_ (field maxThreadsDim)
-* Simultaneously running threads inside the block in the same time called _warp_. Number of threads in warp called _warp size_
+* Number of blocks called _Grid dimensions_ (field maxGridSize in property structure or blockDim.x in the kernel)
+* Number of threads in the block called _Thread dimension_ (field maxThreadsDim in property structure)
+* Simultaneously running threads inside the block in the same time called _warp_. Number of threads in warp called _warp size_ (warpSize in property structure)
 * Current running block is __blockIdx.x__ in the kernel
 * Current thread is __threadIdx.x__ in the kernel
 
