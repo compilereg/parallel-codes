@@ -1,7 +1,16 @@
 # cuda codes.
+## Cuda parallel model
+![image](https://github.com/compilereg/parallel-codes/blob/main/cuda/cuda-parallel.png)  
+* Number of blocks called _Grid dimensions_ (field maxGridSize in property struct or blockDim.x in the kernel)
+* Number of threads in the block called _Thread dimension_ (field maxThreadsDim)
+* Simultaneously running threads inside the block in the same time called _warp_. Number of threads in warp called _warp size_
+* Current running block is __blockIdx.x__ in the kernel
+* Current thread is __threadIdx.x__ in the kernel
+
 ## getDeviceInfo.cu
 A cuda code that queries number of connected nvidia devices to the system. After that, query each device to print the properties.  
 The program uses _cudaDeviceProp_ to retrieve the property structure for each device.  
+
 
 ## sumVectors.cu
 A cuda code create 3 vectors (arrays), initialize 1st 2 vectors with random data, send them to the cuda device, performs the vector addition using N-block with 1 thread each.
