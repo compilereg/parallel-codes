@@ -4,6 +4,7 @@
 #define VECSIZE 64000
 /*
 	A Cuda example, generates two vectors and sum them using cuda by offloading 3 vectors (arrays) of double data type to device.
+	The example, launches a VECSIZE block, each block runs only one thread due to the kernel launch. Keep in mind, that we can run up to 65,535 blocks.
 	1-Allocate three polong inters in host memory (CPU)
 	2-Fill two of them with data
 	3-Allocate three polong inters in device memory (GPU)
@@ -100,6 +101,7 @@ cudaMemcpy(dev_b,host_b,VECSIZE * sizeof(double),cudaMemcpyHostToDevice);
 //Offload the kernel to GPU and execute the kernel
 printf("\nStarting the kernel");
 for(int j=0;j<10000;j++)
+	//Launch kernel as a thread repeated in every block up to VEVSIZE blocks.
 	addVectors<<<VECSIZE,1>>>(dev_a,dev_b,dev_c,VECSIZE);
 
 
