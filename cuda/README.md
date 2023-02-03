@@ -14,7 +14,7 @@ The program uses _cudaDeviceProp_ to retrieve the property structure for each de
 
 ## sumVectors.cu
 A cuda code create 3 vectors (arrays), initialize 1st 2 vectors with random data, send them to the cuda device, performs the vector addition using N-block with 1 thread each.   
-` long int index = blockIdx.x;
-  if ( index >= 0 && index < vecsize)
+` long int index = blockIdx.x;  
+  if ( index >= 0 && index < vecsize)  
 	c[index] = a[index] + b[index];`  
 Here, assign the kernel to only one thread in each block by getting the block number as the array index. Here every thread can not communicate with the other threads because they are running in different blocks.
