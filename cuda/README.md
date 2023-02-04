@@ -18,7 +18,12 @@ A cuda code create 3 vectors (arrays), initialize 1st 2 vectors with random data
 ` long int index = blockIdx.x;  
   if ( index >= 0 && index < vecsize)  
 	c[index] = a[index] + b[index];`  
-Here, assign the kernel to only one thread in each block by getting the block number as the array index. Here every thread can not communicate with the other threads because they are running in different blocks.
+The kernel laucnhed with   
+`   
+	addVectors<<<VECSIZE,1>>>(dev_a,dev_b,dev_c,VECSIZE);  `
+
+Here, assign the kernel to only one thread in each block by getting the block number as the array index. Here every thread can not communicate with the other threads because they are running in different blocks.  
+The kernel launched with VECSIZE blocks, 1 active thread per block.                      
 ![image](https://github.com/compilereg/parallel-codes/blob/main/cuda/n-1.png)
 Figure 2  
 
