@@ -17,4 +17,7 @@
 ** gcc -O2 -o mm_update mm_update.c
 * Check the difference in time between difference binary generation methods
 
-
+## mm-update-openmp.c: parallel updated matrix multiplication in openmp
+The parallelized updated matrix multiplication  in openmp
+* To compile the code, gcc -O2 -o mm-update-openmp mm-update-openmp.c -fopenmp
+* Check the difference in time between the 3 implementations!
