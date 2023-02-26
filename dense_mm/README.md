@@ -21,3 +21,6 @@
 The parallelized updated matrix multiplication  in openmp
 * To compile the code, gcc -O2 -o mm-update-openmp mm-update-openmp.c -fopenmp
 * Check the difference in time between the 3 implementations!
+
+## blocked_mm.c: Sequential matrix mulitplication using blocked mm algorithm
+
