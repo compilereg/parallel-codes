@@ -18,3 +18,6 @@ The code, calculates the time taken by function dotproduct by calling omp_get_wt
  * To submit the code to the cluster, sbatch submit.openmp "./vec_mul_omp 1000000"
  * To run the code locally, ./vec_mul_omp 1000000
 ### GPU parallel code
+#### Vector multiplication with N blocks, and 1 thread
+#### Vector multiplication with 1 block, and M threads
+#### Vector multiplication with N block, and M threads
