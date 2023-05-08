@@ -20,7 +20,10 @@ The code, calculates the time taken by function dotproduct by calling omp_get_wt
 ### GPU parallel code
 #### Vector multiplication with N blocks, and 1 thread : vec_mul_nk1t.cu
 In this code, created N blocks equals to vector size with 1 thread each. The kernel function dotproduct will be launched N times. In each thread, program accesses the memory location pointed by BlockIdx.x which is the block number. as in Figure 2.
+ * The compilation must be done in machine with nVidia GPU installed. To compile using cluster : submit.nvcc vec_mul_nk1t vec_mul_nk1t.cu
+ * To submit to the cluster : sbatch submit.gpu "./vec_mul_nk1t 10000"
 ![image](https://github.com/compilereg/parallel-codes/blob/main/vector/n-1.png)
 Figure 2
+
 #### Vector multiplication with 1 block, and M threads : vec_mul_1knt.cu
 #### Vector multiplication with N block, and M threads : vec_mul_nknt.cu
