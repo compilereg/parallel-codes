@@ -1,2 +1,2 @@
 # parallel-codes
-Parallel, and Distributed codes
+## Parallel, and Distributed codes
