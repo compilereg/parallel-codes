@@ -13,3 +13,8 @@ As in Figure 1, vector size=10, and radius=2
 ![image](https://github.com/compilereg/parallel-codes/blob/main/1dstencil/example1.png)
 Figure 2
 
+# 1d stencil codes:
+## Sequential code
+The code, calculate the time taken by function stencil_1d by surrounding its call by calling functio omp_get_wtime();
+## Parallel code with OMP
+## Parallel code with CUDA
