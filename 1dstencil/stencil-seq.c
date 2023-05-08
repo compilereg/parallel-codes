@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
-#include <omp.h>
+#include <time.h>
 float *in,*out;
 int size,radius;
 
@@ -59,7 +59,8 @@ void printVector(float *v,int s) {
 }
 
 int main(int argc,char **argv) {
-	double start,end;
+	double diff_t;
+	time_t start_t,end_t;
 	//Check for passed parameters, the program needs two parameters in order, the vector size, and radius
 	if ( argc != 3 ) {
 		printf("\nNot enough parameters");
@@ -77,12 +78,13 @@ int main(int argc,char **argv) {
 	//printf("\nApply 1D Stencil to 1D array");
 	
 	//Get the time justt before the stencil function
-	start=omp_get_wtime();
+	time(&start_t);
 	out=stencil_1d(in,out,size,radius);
 	//Get the time just after stencil function
-	end=omp_get_wtime();
+	time(&end_t);
+	diff_t = difftime(end_t,start_t);
 
-	printf("\nStencil for size %d with radius %d took %f seconds\n",size,radius,end-start);
+	printf("\nStencil for size %d with radius %d took %f seconds\n",size,radius,diff_t);
 /*
 	printf("\nIn");
 	printVector(in,size);
