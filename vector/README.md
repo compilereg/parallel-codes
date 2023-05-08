@@ -42,7 +42,7 @@ In this code, created 1 blocks with N thread equals to vector size . The kernel 
 Figure 3
 
 #### Vector multiplication with N block, and M threads : vec_mul_nknt.cu
-In this code, created N blocks with M thread , that NxM equals vector size . The kernel function dotproduct will be launched MxN times. In each thread, program accesses the memory location pointed by threadIdx.x + blockIdx.x * blockDim.x as in Figure 5. Now, a new concept here, in the kernel function we have to check for memory location to do not access a memory location beond the memory limits. Keep in mind, when scheduling threads to a block, all block threads will be launched even if allocated threads less than actual THREADS_PER_BLOCK as in Figure 4.
+In this code, created N blocks with M thread , that NxM equals vector size . The kernel function dotproduct will be launched MxN times. In each thread, program accesses the memory location pointed by threadIdx.x + blockIdx.x * blockDim.x.  Now, a new concept here, in the kernel function we have to check for memory location to do not access a memory location beond the memory limits. Keep in mind, when scheduling threads to a block, all block threads will be launched even if allocated threads less than actual THREADS_PER_BLOCK as in Figure 4.
  * To prevent this, the kernel function must check which thread run by threadIdx.x + blockIdx.x * blockDim.x
  * To time taken calculated as sum of ( time consumed for copying data from host memory to device memory  + time consumed for GPU core computation + time consumed for copying data from device memory to host memory )
  * Time calculated using cudaEventElapsedTime comibined with cudaEventCreate, cudaEventRecord, and cudaEventSynchronize.
