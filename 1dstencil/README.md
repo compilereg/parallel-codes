@@ -1,5 +1,5 @@
 # 1D stencil
-* 1D stencil is an operation that for any point in an element in an vector is the sum of the  same element in the input vector + Elements before that number with RADIUS number + Elements after that number with RADIUS number. 
+* 1D stencil is an operation that for any point in an element in a vector is the sum of the  same element in the input vector + Elements before that number with RADIUS number + Elements after that number with RADIUS number. 
  * The elements before 0 counted as 0
  * The elements after vector SIZE counted as 0
 
