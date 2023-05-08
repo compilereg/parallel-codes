@@ -29,4 +29,10 @@ In this code, created N blocks equals to vector size with 1 thread each. The ker
 Figure 2
 
 #### Vector multiplication with 1 block, and M threads : vec_mul_1knt.cu
+
+![image](https://github.com/compilereg/parallel-codes/blob/main/vector/1-n.png)
+Figure 3
+
 #### Vector multiplication with N block, and M threads : vec_mul_nknt.cu
+![image](https://github.com/compilereg/parallel-codes/blob/main/vector/n-n.png)
+Figure 4
