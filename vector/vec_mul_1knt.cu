@@ -43,7 +43,7 @@ void printVector(float *v,int s) {
 //The code performs vector multiplication, in each block 
 __global__ void dotproduct(float *da,float *db,float *dc) {
 	/*
-		blockIdx.x : block number
+		threadIdx.x : thread number
 	*/
 	int loc=threadIdx.x;
 	//Do not forget to check that the thread access a valid memory location :-)

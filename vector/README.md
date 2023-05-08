@@ -29,6 +29,14 @@ In this code, created N blocks equals to vector size with 1 thread each. The ker
 Figure 2
 
 #### Vector multiplication with 1 block, and M threads : vec_mul_1knt.cu
+In this code, created 1 blocks with N thread equals to vector size . The kernel function dotproduct will be launched N times. In each thread, program accesses the memory location pointed by ThreadIdx.x which is the thread number. as in Figure 3. Here, a new concept here, in the kernel function we have to check for memory location to do not access a memory location beond the memory limits. Keep in mind, when scheduling threads to a block, all block threads will be launched even if allocated threads less than actual THREADS_PER_BLOCK
+ * For example, support THREADS_PER_BLOCK = 512, and size=100, means that there are 512 threads run which yields that all threads from 101 up to 512 access an invalid memory locations.
+ * To prevent this, the kernel function must check which thread run by threadIdx.x
+ * To time taken calculated as sum of ( time consumed for copying data from host memory to device memory  + time consumed for GPU core computation + time consumed for copying data from device memory to host memory )
+ * Time calculated using cudaEventElapsedTime comibined with cudaEventCreate, cudaEventRecord, and cudaEventSynchronize.
+ * The function cudaEventSynchronize is very critical, the kernel launching is a synchronus, be means once launched the control go back to the CPU without waitting to finish the task running, so the time calculation will not be accurate. The function acts a barrier, so all threads will wait till completes before executing the cudaEventElapsedTime.
+ *  The compilation must be done in machine with nVidia GPU installed. To compile using cluster : submit.nvcc vec_mul_1knt vec_mul_1knt.cu
+ *  To submit to the cluster : sbatch submit.gpu "./vec_mul_1knt 10000"
 
 ![image](https://github.com/compilereg/parallel-codes/blob/main/vector/1-n.png)
 Figure 3
