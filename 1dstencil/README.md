@@ -21,7 +21,7 @@ The code, calculates the time taken by function stencil_1d by surrounding its ca
  * To run the code locally, ./stencil_seq 1000 10
 ## Parallel code with OMP
 The code, calculates the time taken by function stecil_id by calling omp_get_wtime just before call it, and one time after called it. Calculates difference between two times.
- * To compiler the code, gcc -o stencil_omp stencil_omp.c -fopenmp
+ * To compile the code, gcc -o stencil_omp stencil_omp.c -fopenmp
  * To submit the code to the cluster, sbatch submit.openmp "./stencil_omp 1000 10"
  * To run the code locally, ./stencil_omp 1000 10
 ## Parallel code with CUDA
