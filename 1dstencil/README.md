@@ -11,7 +11,7 @@ As in Figure 1, vector size=10, and radius=2
   * To calculate b[9] = a[7]+a[8]+a[9]+a[10]+a[11] = 20+0+3+0+. Because a[10], and a[11] after vector size, counted as 0
 
 ![image](https://github.com/compilereg/parallel-codes/blob/main/1dstencil/example1.png)
-Figure 2
+Figure 1
 
 # 1d stencil codes:
 ## Sequential code
