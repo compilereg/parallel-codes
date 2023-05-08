@@ -18,6 +18,9 @@ The code, calculates the time taken by function dotproduct by calling omp_get_wt
  * To submit the code to the cluster, sbatch submit.openmp "./vec_mul_omp 1000000"
  * To run the code locally, ./vec_mul_omp 1000000
 ### GPU parallel code
-#### Vector multiplication with N blocks, and 1 thread
-#### Vector multiplication with 1 block, and M threads
-#### Vector multiplication with N block, and M threads
+#### Vector multiplication with N blocks, and 1 thread : vec_mul_nk1t.cu
+In this code, created N blocks equals to vector size with 1 thread each. The kernel function dotproduct will be launched N times. In each thread, program accesses the memory location pointed by BlockIdx.x which is the block number. as in Figure 2.
+![image](https://github.com/compilereg/parallel-codes/blob/main/vector/n-1.png)
+Figure 2
+#### Vector multiplication with 1 block, and M threads : vec_mul_1knt.cu
+#### Vector multiplication with N block, and M threads : vec_mul_nknt.cu
