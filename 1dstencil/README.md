@@ -17,7 +17,7 @@ Figure 2
 ## Sequential code
 The code, calculates the time taken by function stencil_1d by surrounding its call using function time. The function time returns current time. Using function difftime that accepts two times, calculates the time difference in seconds.
  * To compile the code, gcc -o stencil_seq stencil_seq.c 
- * To submit the code to the cluster, sbatch submut.seq "./stencil_seq 1000 10"
+ * To submit the code to the cluster, sbatch submit.seq "./stencil_seq 1000 10"
  * To run the code locally, ./stencil_seq 1000 10
 ## Parallel code with OMP
 ## Parallel code with CUDA
