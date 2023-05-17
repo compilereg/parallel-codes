@@ -30,3 +30,4 @@ Keep in mind, also in each thread, the kernel function must check the vector ind
  * To compile the code, submit.nvcc stencil-cuda stencil-cuda.cu
  * To submit the code to the cluster, sbatch submit.gpu "./stencil-cuda 1000 10" where 1000 is the vector suze, and 10 is the radius.
  * Note, the code must be compiled on the node with GPU, and because of that we used a third party script uses nvcc on a node with GPU
+ * The code, also calculates the stencil on CPU using the function "stencil_1d" to compare the result with GPU using the function "checkResults". To use only the GPU function, just comment out the calls to both functions.
