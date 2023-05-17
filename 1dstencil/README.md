@@ -25,3 +25,5 @@ The code, calculates the time taken by function stecil_id by calling omp_get_wti
  * To submit the code to the cluster, sbatch submit.openmp "./stencil_omp 1000 10"
  * To run the code locally, ./stencil_omp 1000 10
 ## Parallel code with CUDA
+The calculation of stencil offloaded to the kernel function "stencil_1d_gpu". The kernel launched into grid with configuration of ceil(size/BLOCKSIZE) blocks, and BLOCKSIZE threads in each block. In each thread, the index calculated as threadIDx.x + blockDim.x * blockIdx.x. 
+Keep in mind, also in each thread, the kernel function must check the vector index inside the range from 0 to size-1
