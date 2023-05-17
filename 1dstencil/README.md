@@ -27,7 +27,7 @@ The code, calculates the time taken by function stecil_id by calling omp_get_wti
 ## Parallel code with CUDA
 The calculation of stencil offloaded to the kernel function "stencil_1d_gpu". The kernel launched into grid with configuration of ceil(size/BLOCKSIZE) blocks, and BLOCKSIZE threads in each block. In each thread, the index calculated as threadIDx.x + blockDim.x * blockIdx.x. 
 Keep in mind, also in each thread, the kernel function must check the vector index inside the range from 0 to size-1
- * To compile the code, submit.nvcc stencil-cuda stencil-cuda.cu
+ * To compile the code, submit.nvcc -o stencil-cuda stencil-cuda.cu. You can use any nvcc options also.
  * To submit the code to the cluster, sbatch submit.gpu "./stencil-cuda 1000 10" where 1000 is the vector suze, and 10 is the radius.
  * Note, the code must be compiled on the node with GPU, and because of that we used a third party script uses nvcc on a node with GPU
  * The code, also calculates the stencil on CPU using the function "stencil_1d" to compare the result with GPU using the function "checkResults". To use only the GPU function, just comment out the calls to both functions.
