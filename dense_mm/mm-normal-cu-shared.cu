@@ -1,10 +1,5 @@
 /*
- *  file name: matrix.cu
- *
- *  matrix.cu contains the code that realize some common used matrix operations in CUDA
- *  
- *  this is a toy program for learning CUDA, some functions are reusable in other project
- *  
+ *  .cu contains the code that realize some common used matrix operations in CUDA using block shared memory
  */
 #include <stdio.h>
 #include <stdlib.h>
